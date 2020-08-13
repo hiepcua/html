@@ -1,0 +1,82 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^/?$ 						index.php [QSA]
+RewriteRule ^contact/?$ 				index.php?com=contact [QSA]
+RewriteRule ^setting/?$ 				index.php?com=setting [QSA]
+RewriteRule ^forgot-password/?$ 		forgot-password.php
+
+RewriteRule ^site/?$ 					index.php?com=site [QSA]
+RewriteRule ^site/add?$ 				index.php?com=site&viewtype=add [QSA]
+RewriteRule ^site/view/([0-9]+)?$ 		index.php?com=site&viewtype=view&id=$1 [QSA]
+RewriteRule ^site/new/?$ 				index.php?com=site&viewtype=new [QSA]
+RewriteRule ^site/public/?$ 			index.php?com=site&viewtype=public [QSA]
+RewriteRule ^site/timeout/?$ 			index.php?com=site&viewtype=timeout [QSA]
+RewriteRule ^site/trash/([0-9]+)?$ 		index.php?com=site&viewtype=trash&id=$1 [QSA]
+RewriteRule ^site/deleted/?$ 			index.php?com=site&viewtype=deleted [QSA]
+
+RewriteRule ^content/?$ 					index.php?com=content [QSA]
+RewriteRule ^content/view?$ 				index.php?com=content&viewtype=view [QSA]
+RewriteRule ^content/add?$ 					index.php?com=content&viewtype=add [QSA]
+RewriteRule ^content/edit/([0-9]+)?$ 		index.php?com=content&viewtype=edit&id=$1 [QSA]
+RewriteRule ^content/write/?$ 				index.php?com=content&viewtype=write [QSA]
+RewriteRule ^content/pending/?$ 			index.php?com=content&viewtype=pending [QSA]
+RewriteRule ^content/waiting_public/?$ 		index.php?com=content&viewtype=waiting_public [QSA]
+RewriteRule ^content/public/?$ 				index.php?com=content&viewtype=public [QSA]
+RewriteRule ^content/deleted/?$ 			index.php?com=content&viewtype=deleted [QSA]
+RewriteRule ^content/takedown/?$ 			index.php?com=content&viewtype=takedown [QSA]
+RewriteRule ^content/return/?$ 				index.php?com=content&viewtype=return [QSA]
+RewriteRule ^content/delete/([0-9]+)?$ 		index.php?com=content&viewtype=delete&id=$1 [QSA]
+
+RewriteRule ^user/?$ 							index.php?com=user [QSA]
+RewriteRule ^profile/?$ 						index.php?com=user&viewtype=profile
+RewriteRule ^changepass/?$ 						index.php?com=user&viewtype=changepass
+RewriteRule ^user/getlist_user/([0-9]+)?$ 		index.php?com=user&viewtype=getlist_user&id=$1 [QSA]
+RewriteRule ^user/add/?$ 						index.php?com=user&viewtype=add
+RewriteRule ^user/edit/([0-9]+)?$ 				index.php?com=user&viewtype=edit&id=$1 [QSA]
+
+RewriteRule ^groupuser/?$ 				index.php?com=groupuser [QSA]
+RewriteRule ^groupuser/add/?$ 			index.php?com=groupuser&viewtype=add 
+RewriteRule ^groupuser/edit/([0-9]+)?$ 	index.php?com=groupuser&viewtype=edit&id=$1 [QSA]
+
+RewriteRule ^categories/?$ 					index.php?com=categories [QSA]
+RewriteRule ^categories/add/?$ 				index.php?com=categories&viewtype=add 
+RewriteRule ^categories/edit/([0-9]+)?$ 	index.php?com=categories&viewtype=edit&id=$1 [QSA]
+RewriteRule ^categories/active/([0-9]+)?$ 	index.php?com=categories&viewtype=active&id=$1 [QSA]
+RewriteRule ^categories/delete/([0-9]+)?$ 	index.php?com=categories&viewtype=delete&id=$1 [QSA]
+
+RewriteRule ^event/?$ 					index.php?com=event [QSA]
+RewriteRule ^event/add/?$ 				index.php?com=event&viewtype=add 
+RewriteRule ^event/edit/([0-9]+)?$ 		index.php?com=event&viewtype=edit&id=$1 [QSA]
+RewriteRule ^event/active/([0-9]+)?$ 	index.php?com=event&viewtype=active&id=$1 [QSA]
+RewriteRule ^event/ishot/([0-9]+)?$ 	index.php?com=event&viewtype=ishot&id=$1 [QSA]
+RewriteRule ^event/delete/([0-9]+)?$ 	index.php?com=event&viewtype=delete&id=$1 [QSA]
+
+RewriteRule ^content_type/?$ 					index.php?com=content_type [QSA]
+RewriteRule ^content_type/add/?$ 				index.php?com=content_type&viewtype=add
+RewriteRule ^content_type/edit/([0-9]+)?$ 		index.php?com=content_type&viewtype=edit&id=$1 [QSA]
+RewriteRule ^content_type/active/([0-9]+)?$ 	index.php?com=content_type&viewtype=active&id=$1 [QSA]
+RewriteRule ^content_type/ishot/([0-9]+)?$ 		index.php?com=content_type&viewtype=ishot&id=$1 [QSA]
+RewriteRule ^content_type/delete/([0-9]+)?$ 	index.php?com=content_type&viewtype=delete&id=$1 [QSA]
+
+RewriteRule ^album/?$ 						index.php?com=album [QSA]
+RewriteRule ^album/add/?$ 					index.php?com=album&viewtype=add
+RewriteRule ^album/edit/([0-9]+)?$ 			index.php?com=album&viewtype=edit&id=$1 [QSA]
+RewriteRule ^album/active/([0-9]+)?$ 		index.php?com=album&viewtype=active&id=$1 [QSA]
+RewriteRule ^album/ishot/([0-9]+)?$ 		index.php?com=album&viewtype=ishot&id=$1 [QSA]
+RewriteRule ^album/delete/([0-9]+)?$ 		index.php?com=album&viewtype=delete&id=$1 [QSA]
+
+
+
+php_flag display_errors  on
+php_value upload_max_filesize 1024M
+php_value post_max_size 1024M
+php_value max_input_time 300
+php_value max_execution_time 300
+
+#Bảo vệ file
+<files .htaccess>
+order allow,deny
+deny from all
+</files>

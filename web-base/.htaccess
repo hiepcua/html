@@ -1,0 +1,39 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^/?$ 							index.php [QSA]
+RewriteRule ^trang-chu/?$ 					index.php [QSA]
+RewriteRule ^contact/?$ 					index.php?com=contact [QSA]
+
+RewriteRule ^content/?$ 					index.php?com=content [QSA]
+RewriteRule ^content/view?$ 				index.php?com=content&viewtype=view [QSA]
+RewriteRule ^content/add?$ 					index.php?com=content&viewtype=add [QSA]
+RewriteRule ^content/edit/([0-9]+)?$ 		index.php?com=content&viewtype=edit&id=$1 [QSA]
+RewriteRule ^content/write/?$ 				index.php?com=content&viewtype=write [QSA]
+RewriteRule ^content/pending/?$ 			index.php?com=content&viewtype=pending [QSA]
+RewriteRule ^content/waiting_public/?$ 		index.php?com=content&viewtype=waiting_public [QSA]
+RewriteRule ^content/public/?$ 				index.php?com=content&viewtype=public [QSA]
+RewriteRule ^content/deleted/?$ 			index.php?com=content&viewtype=deleted [QSA]
+RewriteRule ^content/takedown/?$ 			index.php?com=content&viewtype=takedown [QSA]
+RewriteRule ^content/return/?$ 				index.php?com=content&viewtype=return [QSA]
+RewriteRule ^content/delete/([0-9]+)?$ 		index.php?com=content&viewtype=delete&id=$
+
+RewriteRule ^categories/?$ 					index.php?com=categories [QSA]
+RewriteRule ^categories/add/?$ 				index.php?com=categories&viewtype=add 
+RewriteRule ^categories/edit/([0-9]+)?$ 	index.php?com=categories&viewtype=edit&id=$1 [QSA]
+RewriteRule ^categories/active/([0-9]+)?$ 	index.php?com=categories&viewtype=active&id=$1 [QSA]
+RewriteRule ^categories/delete/([0-9]+)?$ 	index.php?com=categories&viewtype=delete&id=$1 [QSA]
+
+
+php_flag display_errors  on
+php_value upload_max_filesize 1024M
+php_value post_max_size 1024M
+php_value max_input_time 300
+php_value max_execution_time 300
+
+#Bảo vệ file
+<files .htaccess>
+order allow,deny
+deny from all
+</files>
